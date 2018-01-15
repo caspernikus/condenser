@@ -10,6 +10,11 @@
   &.fill-black > svg > path {
     fill:black;
   }
+
+  &.small-size {
+      width: 21px !important;
+      height: 21px !important;
+  }
 }
 
 .Icon_1_5x > svg, span.Icon_1_5x {

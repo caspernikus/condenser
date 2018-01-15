@@ -20,6 +20,7 @@ class PostsIndex extends React.Component {
     static propTypes = {
         discussions: PropTypes.object,
         accounts: PropTypes.object,
+        follow_count: PropTypes.object,
         status: PropTypes.object,
         routeParams: PropTypes.object,
         requestData: PropTypes.func,
@@ -180,6 +181,17 @@ class PostsIndex extends React.Component {
             ? ' layout-block'
             : ' layout-list';
 
+        let user_account = this.props.accounts.get(this.props.username);
+        if (user_account) {
+            user_account = user_account.toJS();
+        }
+
+        let follow_count = this.props.follow_count;
+        if (follow_count) {
+            follow_count = follow_count.get(this.props.username);
+            follow_count = follow_count.toJS();
+        }
+
         return (
             <div
                 className={
@@ -224,7 +236,12 @@ class PostsIndex extends React.Component {
                     ) : (
                         <div>
                             {/* <SidebarStats steemPower={123} followers={23} reputation={62} />  */}
-                            <SidebarLinks username={this.props.username} />
+                            <SidebarLinks
+                                username={this.props.username}
+                                account={user_account}
+                                follow_count={follow_count}
+                                gprops={this.props.gprops}
+                            />
                         </div>
                     )}
                 </aside>
@@ -260,6 +277,8 @@ module.exports = {
                 status: state.global.get('status'),
                 loading: state.app.get('loading'),
                 accounts: state.global.get('accounts'),
+                follow_count: state.global.get('follow_count'),
+                gprops: state.global.get('props'),
                 username:
                     state.user.getIn(['current', 'username']) ||
                     state.offchain.get('account'),

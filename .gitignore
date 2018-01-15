@@ -8,4 +8,5 @@ vendor/*
 tmp/*
 .vagrant
 lib
-
+config/dev.json
+config/production.json

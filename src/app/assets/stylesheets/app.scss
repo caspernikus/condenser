@@ -113,6 +113,14 @@ a.ptc {
   text-decoration: underline;
 }
 
+.button.hollow.no-margin {
+  margin: 0px;
+}
+
+.small-text {
+    font-size: 14px;
+}
+
 .button.slim {
   padding: 5px;
   margin: 5px;
@@ -190,5 +198,3 @@ h1, h2, h3, h4, h5, h6 {
   display: inline;
   color: red;
 }
-
-

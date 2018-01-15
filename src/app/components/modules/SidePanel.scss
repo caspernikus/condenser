@@ -4,8 +4,8 @@ $menu-width: 250px;
   display: block;
 
   .menu > li.last {
-    border-bottom: 1px solid $color-border-dark;   
-    color: $color-text-gray-light;  
+    border-bottom: 1px solid $color-border-dark;
+    color: $color-text-gray-light;
   }
 
   > div {
@@ -27,7 +27,7 @@ $menu-width: 250px;
         border-bottom: 1px solid $color-teal;
 
         path {
-          fill: $color-teal;     
+          fill: $color-teal;
         }
       }
       path {
@@ -71,6 +71,38 @@ $menu-width: 250px;
     top: 3px;
     left: 2px;
   }
+}
+
+.c-sidebar__list-menu-point {
+    font-size: 21px;
+    display: inline-block;
+}
+
+progress.custom-progressbar {
+    background: #06D6A9;
+    height: 10px;
+    width: 100%;
+}
+
+/* Firefox */
+progress.custom-progressbar::-moz-progress-bar {
+    background: #06D6A9;
+    height: 10px;
+    width: 100%;
+}
+
+/* Chrome */
+progress.custom-progressbar::-webkit-progress-value {
+    background: #06D6A9;
+    height: 10px;
+    width: 100%;
+}
+
+/* Polyfill */
+progress.custom-progressbar[aria-valuenow]:before  {
+    background: #06D6A9;
+    height: 10px;
+    width: 100%;
 }
 
 /* Small only */
