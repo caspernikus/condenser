@@ -11,7 +11,6 @@ const SidebarLinks = ({ username, account, follow_count, gprops }) => {
     let followerCount = 0;
     let followingCount = 0;
 
-    console.log(account);
     if (follow_count) {
         followerCount = follow_count.follower_count;
         followingCount = follow_count.following_count;
@@ -30,7 +29,7 @@ const SidebarLinks = ({ username, account, follow_count, gprops }) => {
 
     const secondsago =
         (new Date() - new Date(account.last_vote_time + 'Z')) / 1000;
-    const currentPower = account.voting_power + 10000 * secondsago / 432000;
+    const currentPower = (account.voting_power + 10000) * secondsago / 432000;
     const votingPower = Math.min(currentPower / 100, 100).toFixed(2);
 
     return (
@@ -53,11 +52,11 @@ const SidebarLinks = ({ username, account, follow_count, gprops }) => {
                         </div>
                     </li>
                     <li className="c-sidebar__list-item small-text">
-                        <div style={{ display: 'inline-block' }}>Follower</div>
+                        <div className="inline-block">Follower</div>
                         <div className="float-right">{followerCount}</div>
                     </li>
                     <li className="c-sidebar__list-item small-text">
-                        <div style={{ display: 'inline-block' }}>Following</div>
+                        <div className="inline-block">Following</div>
                         <div className="float-right">{followingCount}</div>
                     </li>
                     <hr />
@@ -75,20 +74,20 @@ const SidebarLinks = ({ username, account, follow_count, gprops }) => {
                         </div>
                     </li>
                     <li className="c-sidebar__list-item small-text">
-                        <div style={{ display: 'inline-block' }}>STEEM</div>
+                        <div className="inline-block">STEEM</div>
                         <div className="float-right">{account.balance}</div>
                     </li>
                     <li className="c-sidebar__list-item small-text">
-                        <div style={{ display: 'inline-block' }}>SBD</div>
+                        <div className="inline-block">SBD</div>
                         <div className="float-right">{account.sbd_balance}</div>
                     </li>
                     <li className="c-sidebar__list-item small-text">
-                        <div style={{ display: 'inline-block' }}>POWER</div>
+                        <div className="inline-block">POWER</div>
                         <div className="float-right">
-                            <div style={{ 'text-align': 'right' }}>
+                            <div className="text-right">
                                 {power_balance_str} STEEM
                             </div>
-                            <div style={{ 'text-align': 'right' }}>
+                            <div className="text-right">
                                 ({received_power_balance_str}) STEEM
                             </div>
                         </div>
@@ -102,13 +101,9 @@ const SidebarLinks = ({ username, account, follow_count, gprops }) => {
                             max="100"
                         />
                         <div style={{ 'font-size': '12px' }}>
-                            <div style={{ display: 'inline-block' }}>
-                                Voting Power
-                            </div>
+                            <div className="inline-block">Voting Power</div>
                             <div className="float-right">
-                                <div style={{ 'text-align': 'right' }}>
-                                    {votingPower}%
-                                </div>
+                                <div className="text-right">{votingPower}%</div>
                             </div>
                         </div>
                     </li>
